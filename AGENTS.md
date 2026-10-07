@@ -4,7 +4,7 @@
 
 - Repo: `pith-hash/pith-image`
 - Description: pith image lane: raster buffers, BMP decode, tier-3 features, pHash (zero-dep Rust)
-- License: Apache-2.0
+- License: MIT
 
 ## Build & Test
 

@@ -5,7 +5,7 @@ edition = "2024"
 rust-version = "1.85"
 description = "pith image lane: raster buffers, BMP decode, tier-3 features, pHash (zero-dep Rust)"
 readme = "README.md"
-license = "Apache-2.0"
+license = "MIT"
 repository = "https://github.com/pith-hash/pith-image"
 homepage = "https://pith-image.n24q02m.com"
 
