@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pith-image"
+version = "0.1.0"
+description = "pith image lane SDK: 64-bit image perceptual hash via the pith-image Rust cdylib (ctypes, zero-dep)"
+license = "MIT"
+requires-python = ">=3.9"
+keywords = ["phash", "image", "hashing", "perceptual-hash", "pith"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Rust",
+  "Topic :: Multimedia :: Graphics",
+  "Topic :: Security :: Cryptography",
+]
+
+[project.urls]
+Repository = "https://github.com/pith-hash/pith-image"
+Homepage = "https://pith-image.n24q02m.com"
+
+[tool.setuptools]
+packages = ["pith_image"]
+
+[tool.setuptools.package-data]
+pith_image = ["*.dll", "*.dylib", "*.so"]

@@ -24,7 +24,10 @@
 //! [`pith-digest`]: https://github.com/pith-hash/pith-digest
 //! [`pith-math`]: https://github.com/pith-hash/pith-math
 
-#![forbid(unsafe_code)]
+// `unsafe` is denied everywhere except `ffi`, the C ABI surface the
+// language SDKs bind through: raw pointers exist only at that boundary,
+// and every exported function is a documented `unsafe extern "C"` fn.
+#![deny(unsafe_code)]
 #![deny(missing_docs)]
 
 // The `raster` and `bmp` modules were `no_std` crates upstream and keep
@@ -32,6 +35,7 @@
 extern crate alloc;
 
 pub mod bmp;
+pub mod ffi;
 pub mod phash;
 pub mod raster;
 pub mod reference;
