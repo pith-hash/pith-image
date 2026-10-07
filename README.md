@@ -72,7 +72,35 @@ see the release assets or the package registries for the matching version.
 
 ## Quick start
 
-(Add example commands here.)
+Rust (the core library):
+
+```bash
+cargo add pith-image
+```
+
+The 64-bit perceptual hash of a raw RGB buffer:
+
+```rust
+use pith_image::phash::image_phash;
+use pith_image::raster::{Image, Rgb};
+
+// 2x1 red/green test image: tight row-major RGB, no padding.
+let img = Image::<Rgb, u8>::from_vec(2, 1, vec![255, 0, 0, 0, 255, 0])
+    .expect("2x1 matches its buffer length");
+
+// luma -> 32x32 box average -> DCT-II -> low 8x8 minus DC -> median threshold.
+let bits = image_phash(&img).expect("well-formed images cannot fail");
+println!("phash: {bits:016x}");
+```
+
+Any layout works: `Gray` pixels are already luma, `Rgb`/`Rgba` convert
+through BT.601 with alpha ignored, `u16` samples reduce to `u8` first.
+Hex-exact cross-SDK vectors live in `reference.json` (regenerate with
+`cargo run --bin gen-reference`, verify with
+`cargo run --bin gen-reference -- verify`).
+
+Python / Node / Go SDKs are published from the same cdylib on every release;
+see the release assets or the package registries for the matching version.
 
 ## Contributing
 
