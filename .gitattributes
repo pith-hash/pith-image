@@ -1,0 +1,5 @@
+# Text: normalize to LF so Windows checkouts cannot rewrite fixture
+# bytes; the pixel dumps and BMP files are binary, byte-exact fixtures.
+* text=auto eol=lf
+*.raw binary
+*.bmp binary

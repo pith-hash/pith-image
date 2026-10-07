@@ -1,0 +1,31 @@
+[package]
+name = "pith-image"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "pith image lane: raster buffers, BMP decode, tier-3 features, pHash (zero-dep Rust)"
+readme = "README.md"
+license = "Apache-2.0"
+repository = "https://github.com/pith-hash/pith-image"
+homepage = "https://pith-image.n24q02m.com"
+
+[dependencies]
+pith-digest = { git = "https://github.com/pith-hash/pith-digest.git", branch = "main" }
+pith-math = { git = "https://github.com/pith-hash/pith-math.git", branch = "main" }
+
+[[bin]]
+name = "gen-reference"
+path = "tools/gen-reference/main.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
+
+# Ported from the upstream kit: codec inner loops (box average, DCT,
+# RANSAC) under -O0 are unrealistically slow in hostile-input tests.
+[profile.test]
+opt-level = 2
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "deny"

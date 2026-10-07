@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "tier": 1,
+  "description": "pith image lane: raster buffers, BMP decode, tier-3 features, pHash (zero-dep Rust)",
+  "homepage": "https://pith-image.n24q02m.com",
+  "topics": [
+    "image",
+    "hashing",
+    "rust",
+    "no-standard-library"
+  ]
+}
