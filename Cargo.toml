@@ -15,8 +15,8 @@ homepage = "https://pith-image.n24q02m.com"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-pith-digest = { git = "https://github.com/pith-hash/pith-digest.git", branch = "main" }
-pith-math = { git = "https://github.com/pith-hash/pith-math.git", branch = "main" }
+pith-digest = { version = "0.1", git = "https://github.com/pith-hash/pith-digest.git", branch = "main" }
+pith-math = { version = "0.1", git = "https://github.com/pith-hash/pith-math.git", branch = "main" }
 
 [[bin]]
 name = "gen-reference"
