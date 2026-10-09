@@ -22,7 +22,7 @@ fn run(arg: Option<&str>) -> ExitCode {
                 ExitCode::FAILURE
             }
         },
-        None => {
+        Some("gen") | Some("generate") | None => {
             let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("reference.json");
             std::fs::write(&path, pith_image::reference::reference_json())
                 .unwrap_or_else(|e| panic!("cannot write {}: {e}", path.display()));
