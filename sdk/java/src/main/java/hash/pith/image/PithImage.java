@@ -147,6 +147,11 @@ public final class PithImage {
             }
         }
 
+        String bundled = BundledNative.extract(CDYLIB_NAMES);
+        if (bundled != null) {
+            return bundled;
+        }
+
         for (Path base = cwd; base != null; base = base.getParent()) {
             for (String name : CDYLIB_NAMES) {
                 Path candidate = base.resolve("target").resolve("release").resolve(name);
@@ -159,6 +164,7 @@ public final class PithImage {
         throw new LinkageError(
                 "cannot locate the pith_image cdylib; set PITH_CDYLIB or PITH_CDYLIB_DIR"
                 + " (probed PITH_CDYLIB, PITH_CDYLIB_DIR, and target/release at "
-                + cwd + " and its ancestors)");
+                + cwd + " and its ancestors)"
+                + BundledNative.platformNote());
     }
 }
