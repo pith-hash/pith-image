@@ -61,7 +61,11 @@ pub const PITH_LAYOUT_RGBA8: u32 = 4;
 /// `data` must point to `len` readable bytes, and `out` to one
 /// writable `u64`; both must stay valid for the duration of the call.
 /// The function does not retain either pointer.
-#[unsafe(no_mangle)]
+// Every export in this module is `no_mangle` outside `cfg(test)` only. Built twice
+// (unit-test binary and shipped library) one `no_mangle` symbol gets two coverage
+// hashes, and `llvm-cov` keeps whichever copy it reads first, so the coverage gate
+// would depend on object order. A unit-test build keeps the normal mangled names.
+#[cfg_attr(not(test), unsafe(no_mangle))]
 pub unsafe extern "C" fn pith_image_phash(
     data: *const u8,
     len: usize,
