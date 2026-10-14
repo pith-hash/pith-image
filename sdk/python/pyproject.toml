@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pith-image"
-version = "0.1.1-beta.1"
+version = "0.1.1"
 description = "pith image lane SDK: 64-bit image perceptual hash via the pith-image Rust cdylib (ctypes, zero-dep)"
 license = "MIT"
 requires-python = ">=3.9"
