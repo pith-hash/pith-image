@@ -1,6 +1,6 @@
 {
   "name": "@pith-hash/pith-image",
-  "version": "0.1.0",
+  "version": "0.1.1-beta.1",
   "description": "pith image lane SDK: 64-bit image perceptual hash via the pith-image Rust cdylib (koffi, prebuilt)",
   "license": "MIT",
   "main": "index.js",
